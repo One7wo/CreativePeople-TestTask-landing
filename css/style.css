@@ -1,0 +1,214 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  border: none;
+}
+
+body {
+  font-family: ALS;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+button {
+  width: 213px;
+  height: 54px;
+  border-radius: 10px;
+  background: #fee600;
+  font-family: ALS;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 7px;
+}
+
+button:hover {
+  background: #fed500;
+}
+
+button:active {
+  background: #dfbb00;
+}
+
+button:disabled {
+  background: #e1e1e3;
+  color: #a2a4a6;
+}
+
+.header {
+  padding: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__logo-raiff {
+  border-right: 1px solid #e1e1e3;
+  padding-right: 33px;
+  margin-right: 35px;
+}
+
+.header__logo-visa {
+  margin: auto 0;
+}
+
+.header__phone {
+  position: absolute;
+  top: 22px;
+  right: 6.5%;
+  font-family: ALS;
+}
+
+.header__phone .number {
+  font-size: 20px;
+}
+
+.header__phone .phone-info {
+  font-size: 13px;
+  color: #808185;
+  text-align: right;
+}
+
+.promo {
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-left: 120px;
+  padding-bottom: 80px;
+}
+
+.promo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.promo__sticker {
+  margin-bottom: 13px;
+}
+
+.promo__title {
+  font-family: Navigo;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 70px;
+  color: #ffffff;
+  max-width: 516px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.promo__title .num {
+  font-weight: 900;
+  font-size: 108px;
+  margin-top: 26px;
+}
+
+.promo__title .num .proc {
+  font-size: 70px;
+}
+
+.promo__button {
+  margin-top: 45px;
+}
+
+.promo__button button {
+  width: 213px;
+  height: 54px;
+}
+
+.benefits {
+  padding: 54px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: 1px solid #e1e1e3;
+}
+
+.benefits__box-conditions {
+  font-family: Navigo;
+}
+
+.benefits__box-conditions .title {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.benefits__box-conditions .title .b {
+  font-size: 64px;
+}
+
+.benefits__box-conditions .text {
+  font-family: ALS;
+  font-size: 16px;
+  font-weight: 400;
+  color: #808185;
+  text-align: center;
+}
+
+.cashback {
+  padding: 130px 79px;
+}
+
+.cashback__title {
+  font-family: Navigo;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.cashback__wrapper-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.cashback__wrapper-box .box-cash {
+  max-width: 365px;
+  max-height: 180px;
+  background: #29476b;
+  border-radius: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 25px;
+  padding-right: 30px;
+}
+
+.cashback__wrapper-box .box-cash .subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.cashback__wrapper-box .box-cash:nth-last-child(1) {
+  padding-right: 0;
+  margin-right: 0;
+}

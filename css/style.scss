@@ -1,0 +1,204 @@
+//  ===Mixins===
+@mixin font-navigo {
+    font-family: Navigo;
+}
+@mixin font-als {
+    font-family: ALS;
+}
+
+//  ===/Mixins===
+
+//  ===Var===
+
+// ===/Var===
+
+// ===COMMON===
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    border: none;
+}
+
+body {
+    @include font-als;
+}
+.inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+button {
+    width: 213px;
+    height: 54px;
+    border-radius: 10px;
+
+    background: #fee600;
+    @include font-als;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 7px;
+
+    &:hover {
+        background: #fed500;
+    }
+    &:active {
+        background: darken(#fed500, 6%);
+    }
+    &:disabled {
+        background: #e1e1e3;
+        color: #a2a4a6;
+    }
+}
+// ===/COMMON===
+
+// ===Hader===
+.header {
+    padding: 22px;
+    display: flex;
+    &__logo-raiff {
+        border-right: 1px solid #e1e1e3;
+        padding-right: 33px;
+        margin-right: 35px;
+    }
+    &__logo-visa {
+        margin: auto 0;
+    }
+    &__phone {
+        position: absolute;
+        top: 22px;
+        right: 6.5%;
+        @include font-als;
+        .number {
+            font-size: 20px;
+        }
+        .phone-info {
+            font-size: 13px;
+            color: #808185;
+            text-align: right;
+        }
+    }
+}
+// ===/Hader===
+
+// ===Promo===
+.promo {
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    padding-top: 80px;
+    padding-left: 120px;
+    padding-bottom: 80px;
+
+    &__sticker {
+        margin-bottom: 13px;
+    }
+    &__title {
+        @include font-navigo;
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 70px;
+        color: #ffffff;
+        max-width: 516px;
+        display: flex;
+        flex-direction: column;
+
+        .num {
+            font-weight: 900;
+            font-size: 108px;
+            // line-height: 70px;
+            margin-top: 26px;
+            .proc {
+                font-size: 70px;
+            }
+        }
+    }
+    &__button {
+        margin-top: 45px;
+        button {
+            width: 213px;
+            height: 54px;
+        }
+    }
+}
+// ===/Promo===
+
+// ===Benefits===
+.benefits {
+    padding: 54px;
+    display: flex;
+    justify-content: space-around;
+
+    border-bottom: 1px solid #e1e1e3;
+
+    &__box-conditions {
+        @include font-navigo;
+
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            .b {
+                font-size: 64px;
+            }
+        }
+        .text {
+            @include font-als;
+            font-size: 16px;
+            font-weight: 400;
+            color: #808185;
+            text-align: center;
+        }
+    }
+}
+// ===/Benefits===
+
+// ===Cashback===
+.cashback {
+    padding: 130px 79px;
+    &__title {
+        @include font-navigo;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 64px;
+    }
+    &__wrapper-box {
+        display: flex;
+        justify-content: space-around;
+
+        .box-cash {
+            max-width: 365px;
+            max-height: 180px;
+            background: #29476b;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+
+            padding-left: 30px;
+            padding-bottom: 25px;
+            padding-right: 30px;
+
+            .subtitle {
+                font-size: 24px;
+                font-weight: 500;
+                color: #ffffff;
+                margin-top: 30px;
+            }
+        }
+        .box-cash:nth-last-child(1) {
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+}
+// ===/Cashback===

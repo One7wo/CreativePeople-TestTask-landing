@@ -1,0 +1,12 @@
+@font-face {
+    font-family: ALS;
+    src: url("ALS_Hauss_Bold_2.1.otf") format("opentype");
+}
+@font-face {
+    font-family: ALS;
+    src: url("ALS_Hauss_Regular_2.1.otf") format("opentype");
+}
+@font-face {
+    font-family: ALS;
+    src: url("ALS_Hauss_Medium_2.1.otf") format("opentype");
+}
