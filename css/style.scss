@@ -38,7 +38,9 @@ button {
     @include font-als;
     font-size: 18px;
     font-weight: 500;
-    padding-top: 7px;
+    padding-top: 6px;
+
+    cursor: pointer;
 
     &:hover {
         background: #fed500;
@@ -57,18 +59,20 @@ button {
 .header {
     padding: 22px;
     display: flex;
-    &__logo-raiff {
-        border-right: 1px solid #e1e1e3;
-        padding-right: 33px;
-        margin-right: 35px;
+    justify-content: space-between;
+    &__logo {
+        display: flex;
+        .logo-raiff {
+            border-right: 1px solid #e1e1e3;
+            padding-right: 33px;
+            margin-right: 35px;
+        }
+        .logo-visa {
+            margin: auto 0;
+        }
     }
-    &__logo-visa {
-        margin: auto 0;
-    }
+
     &__phone {
-        position: absolute;
-        top: 22px;
-        right: 6.5%;
         @include font-als;
         .number {
             font-size: 20px;
@@ -86,13 +90,6 @@ button {
 .promo {
     height: 550px;
     position: relative;
-    overflow: hidden;
-    img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: -1;
-    }
 
     padding-top: 80px;
     padding-left: 120px;
@@ -114,7 +111,6 @@ button {
         .num {
             font-weight: 900;
             font-size: 108px;
-            // line-height: 70px;
             margin-top: 26px;
             .proc {
                 font-size: 70px;
@@ -128,6 +124,19 @@ button {
             height: 54px;
         }
     }
+}
+.promo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    background-image: url("../img/Promo_desk_1920x550.png");
+    background-position: top right;
+    background-size: inherit;
+    background-repeat: no-repeat;
 }
 // ===/Promo===
 
@@ -202,3 +211,289 @@ button {
     }
 }
 // ===/Cashback===
+
+// ===Calculate===
+.calculate {
+    padding: 72px 195px 90px 195px;
+    background: #f4f4f4;
+
+    &__title {
+        @include font-navigo;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 26px;
+    }
+    &__text {
+        font-size: 18px;
+        font-weight: 400;
+        color: #808185;
+        text-align: center;
+        margin-bottom: 52px;
+    }
+    &__calc-wrapper {
+        display: flex;
+        padding: 55px 60px 60px 60px;
+        background: #ffffff;
+        border-radius: 14px;
+
+        .wrapper-left {
+            border-right: 1px solid #e1e1e3;
+            padding-right: 57px;
+
+            .slider-box {
+                margin-bottom: 32px;
+                &__top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .subtitle {
+                        font-size: 16px;
+                    }
+                    .slider-value {
+                        @include font-navigo;
+                        font-size: 32px;
+                    }
+                }
+
+                &__slider {
+                    .slider {
+                        .stripe,
+                        .stripe-1 {
+                            -webkit-appearance: none;
+                            width: 100%;
+                            height: 5px;
+                            background: -webkit-linear-gradient(
+                                left,
+                                #fee600 0%,
+                                #fee600 50%,
+                                #e1e1e3 50%,
+                                #e1e1e3 100%
+                            );
+                            outline: none;
+                        }
+
+                        .stripe::-webkit-slider-thumb,
+                        .stripe-1::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            background: #fee600;
+                            &:hover {
+                                background: #fed500;
+                            }
+                            &:active {
+                                background: darken(#fee600, 2%);
+                            }
+                        }
+                    }
+                }
+
+                &__bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 17px;
+                    .text {
+                        font-size: 12px;
+                        color: #a2a4a6;
+                    }
+                }
+            }
+            .text-info {
+                margin-top: 44px;
+                font-size: 13px;
+                color: #a2a4a6;
+            }
+        }
+
+        .wrapper-right {
+            padding-left: 56px;
+            .client-info {
+                margin-bottom: 65px;
+                .title {
+                    @include font-navigo;
+                    font-size: 32px;
+                    font-weight: 700;
+                }
+            }
+            .credit-button {
+                margin-top: 12px;
+            }
+        }
+    }
+}
+// ===/Calculate===
+
+// ===Form===
+.form {
+    padding: 80px 218px 90px 218px;
+    &__title {
+        @include font-navigo;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 44px;
+    }
+    &__steps {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 42px;
+        padding-right: 40px;
+        padding-left: 40px;
+
+        .steps-box {
+            display: flex;
+            margin-right: 40px;
+            svg {
+                margin-right: 14px;
+                min-width: 21px;
+            }
+            .subtitle {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+        .steps-box:nth-last-child(1) {
+            margin-right: 0;
+        }
+    }
+    &__field {
+        border: 1px solid #e1e1e3;
+        border-radius: 12px;
+        max-width: 964px;
+        height: 511px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text {
+            font-size: 18px;
+            font-weight: 400;
+            color: #a2a4a6;
+        }
+    }
+}
+// ===/Form===
+
+// ===r-online===
+.r-online {
+    background: #424548;
+    padding: 80px 130px 80px 130px;
+    &__title {
+        @include font-navigo;
+        font-size: 48px;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 17px;
+    }
+    &__text {
+        font-size: 18px;
+        font-weight: 400;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 64px;
+    }
+    &__screens-slider {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 70px;
+
+        .control-button {
+            margin-right: 20px;
+            button {
+                height: 42px;
+                width: 42px;
+            }
+        }
+        .control-button:nth-last-child(1) {
+            margin-right: 0;
+            margin-left: 20px;
+        }
+
+        .screens {
+            display: flex;
+            justify-content: space-between;
+            &__box {
+                background: #2b2d33;
+                border-radius: 14px;
+                padding: 60px 24px 0px 24px;
+
+                margin-right: 20px;
+                img {
+                    position: relative;
+                    bottom: -8px;
+                }
+            }
+            &__box:nth-last-child(1) {
+                margin-right: 0;
+            }
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        button {
+            min-width: 265px;
+            height: 54px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+// ===/r-online===
+
+// ===Footer===
+.footer {
+    margin-top: 90px;
+    padding-bottom: 50px;
+    .text-info {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #808185;
+    }
+    &__credits {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #e1e1e3;
+        border-bottom: 1px solid #e1e1e3;
+        padding: 29px 130px;
+    }
+    &__legal {
+        padding: 47px 130px;
+
+        .frame {
+            overflow: scroll;
+            overflow-x: hidden;
+            height: 122px;
+            padding-right: 30px;
+        }
+        .frame::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        .frame::-webkit-scrollbar-track-piece {
+            background-color: #e1e1e3;
+        }
+        .frame::-webkit-scrollbar-thumb {
+            height: 48px;
+            width: 5px;
+            background-color: #808185;
+            border-radius: 4px;
+
+            &:hover {
+                background: darken(#808185, 6%);
+            }
+            &:active {
+                background: darken(#808185, 10%);
+            }
+        }
+    }
+}
+// ===/Footer===

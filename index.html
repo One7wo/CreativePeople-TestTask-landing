@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/range.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/ALS_Hauss/stylesheet.css">
     <link rel="stylesheet" href="fonts/type.today-navigo-desktop/stylesheet.css">
@@ -13,12 +15,15 @@
 
 <body>
     <section class="header inner">
-        <div class="header__logo-raiff">
-            <img src="img/Raiff_logo.png" alt="logo-raiff">
+        <div class="header__logo">
+            <div class="logo-raiff">
+                <img src="img/Raiff_logo.png" alt="logo-raiff">
+            </div>
+            <div class="logo-visa">
+                <img src="img/Visa_Logo.png" alt="logo-visa">
+            </div>
         </div>
-        <div class="header__logo-visa">
-            <img src="img/Visa_Logo.png" alt="logo-visa">
-        </div>
+
         <div class="header__phone">
             <div class="number">8 800 770-75-62</div>
             <div class="phone-info">Бесплатно по России</div>
@@ -27,7 +32,6 @@
     <section class="promo inner">
 
         <div class="promo__sticker">
-            <!-- Бесплатное обслуживание -->
             <svg width="236" height="34" viewBox="0 0 236 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M0 5.44C0 2.43557 2.10493 0 4.7015 0L222.9 0C224.289 0 225.607 0.710532 226.5 1.94104L234.892 13.501C236.361 15.5242 236.361 18.4758 234.892 20.499L226.5 32.059C225.607 33.2895 224.289 34 222.9 34H4.7015C2.10493 34 0 31.5644 0 28.56V5.44Z"
@@ -40,20 +44,14 @@
         </div>
         <div class="promo__title">
             Кредитная карта
-            <!-- <br> -->
             с кэшбэком
-            <!-- <br> -->
             <span class="num">1,5 <span class="proc">%</span></span></span>
-            <!-- -->
-
-            <!--  -->
         </div>
         <div class="promo__button">
             <button><span>Оформить онлайн</span></button>
         </div>
-        <img src="img/Promo_desk_1920x550.png" alt="">
     </section>
-    <section class="benefits inner">
+    <section class="benefits ">
         <div class="benefits__box-conditions">
             <div class="title"><span class="b">1,5</span>%</div>
             <div class="text">кэшбэк рублями</div>
@@ -72,7 +70,7 @@
         </div>
 
     </section>
-    <section class="cashback inner">
+    <section class="cashback ">
         <div class="cashback__title">Кэшбэк 1,5% без ограничений</div>
         <div class="cashback__wrapper-box">
 
@@ -94,10 +92,181 @@
         </div>
 
     </section>
-    <section class="calculate"></section>
-    <section class="form"></section>
-    <section class="r-online"></section>
-    <section class="footer"></section>
+    <section class="calculate ">
+        <div class="calculate__title">Возьмите дополнительный кредит</div>
+        <div class="calculate__text">Кредит на любые цели. Получите решение за 2 минуты</div>
+        <div class="calculate__calc-wrapper">
+            <div class="wrapper-left">
+                <div class="slider-box">
+                    <div class="slider-box__top">
+                        <div class="subtitle">Какая сумма нужна?</div>
+                        <div class="slider-value">500 000 ₽</div>
+                    </div>
+                    <div class="slider-box__slider">
+                        <div class="slider">
+                            <input type="range" class="stripe" min="0" max="100" value="50" oninput="progress()">
+                        </div>
+                    </div>
+                    <div class="slider-box__bottom">
+                        <div class="slider-min text">90 000 ₽</div>
+                        <div class="slider-max text">2 000 000 ₽</div>
+                    </div>
+                </div>
+                <div class="slider-box">
+                    <div class="slider-box__top">
+                        <div class="subtitle">На какой срок?</div>
+                        <div class="slider-value">36 мес.</div>
+                    </div>
+                    <div class="slider-box__slider">
+                        <div class="slider">
+                            <input type="range" class="stripe-1" min="0" max="100" value="50" oninput="progress2()">
+                        </div>
+                    </div>
+                    <div class="slider-box__bottom">
+                        <div class="slider-min text">13 мес.</div>
+                        <div class="slider-max text">60 мес.</div>
+                    </div>
+                </div>
+                <div class="text-info">Расчет платежа приведен с учетом финансовой защиты. Не является офертой.</div>
+            </div>
+            <div class="wrapper-right">
+                <div class="client-info">
+                    <div class="title">10,99%</div>
+                    <div class="subtitle">ваша ставка</div>
+                </div>
+                <div class="client-info">
+                    <div class="title">14 265 ₽</div>
+                    <div class="subtitle">ежемесячный платёж</div>
+                </div>
+                <div class="credit-button button">
+                    <button>Получить кредит</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="form ">
+        <div class="form__title">Оформите карту онлайн</div>
+        <div class="form__steps">
+            <div class="steps-box">
+                <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2.4H2.5V21.6H17.5V9.6H11.25C10.5596 9.6 10 9.06274 10 8.4V2.4ZM16.9822 7.2L12.5 2.89706V7.2H16.9822ZM20 7.2V22.8C20 23.4627 19.4404 24 18.75 24H1.25C0.559644 24 0 23.4627 0 22.8V1.2C0 0.537258 0.559644 0 1.25 0H12.5C12.8315 0 13.1495 0.126428 13.3839 0.351472L19.6339 6.35147C19.8683 6.57652 20 6.88174 20 7.2Z"
+                        fill="#2B2D33" />
+                </svg>
+                <div class="subtitle">Заполните онлайн-заявку.
+                    Это займет не больше 5 минут</div>
+            </div>
+            <div class="steps-box">
+                <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.4118 2.52607H2.58824V17.6825H6.47059C7.18531 17.6825 7.76471 18.248 7.76471 18.9456V20.2086L10.8706 17.9351C11.0946 17.7712 11.3671 17.6825 11.6471 17.6825H19.4118V2.52607ZM5.17647 20.2086H1.29412C0.579396 20.2086 0 19.6431 0 18.9456V1.26304C0 0.565481 0.579396 0 1.29412 0H20.7059C21.4206 0 22 0.565481 22 1.26304V18.9456C22 19.6431 21.4206 20.2086 20.7059 20.2086H12.0784L7.24706 23.7451C6.39393 24.3696 5.17647 23.7755 5.17647 22.7347V20.2086ZM5.17647 13.8934V11.3673H16.8235V13.8934H5.17647ZM5.17647 8.84126V6.31519H16.8235V8.84126H5.17647Z"
+                        fill="#2B2D33" />
+                </svg>
+                <div class="subtitle">Через 2 минуты придет смс
+                    с решением</div>
+            </div>
+            <div class="steps-box">
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21 8.4C21 7.84165 20.7788 7.30617 20.385 6.91135C19.9913 6.51654 19.4572 6.29474 18.9004 6.29474H17.7246L12.6016 0H0.00398527V2.10526H11.7303L15.0686 6.31579H8.71733L6.70171 8.42105L11.7618 13.1789L11.2054 13.9474C9.65165 13.1895 4.90655 10.7368 3.14289 9C2.78945 8.654 2.51315 8.23683 2.3322 7.77598C2.15125 7.31512 2.06976 6.82105 2.09309 6.32632H0.00398527C-0.0251966 7.10411 0.106133 7.87956 0.389746 8.60409C0.673359 9.32862 1.10314 9.98661 1.65217 10.5368C3.39484 12.2737 8.30791 14.8632 10.3655 15.8947C10.7922 16.1096 11.282 16.163 11.7448 16.0451C12.2076 15.9271 12.6124 15.6458 12.885 15.2526L13.7354 13.9474C13.9186 13.4981 13.9414 12.999 13.7998 12.5348C13.6583 12.0706 13.3611 11.6697 12.9585 11.4L9.71464 8.37895H18.9004V10.4842H13.6514L14.2603 10.9895C14.7004 11.4229 14.9972 11.9814 15.1106 12.5895H18.9004V17.8526H5.25299V14.8842L3.15339 13.6842V17.8947C3.15339 18.4531 3.3746 18.9886 3.76835 19.3834C4.1621 19.7782 4.69614 20 5.25299 20H18.9004C19.4572 20 19.9913 19.7782 20.385 19.3834C20.7788 18.9886 21 18.4531 21 17.8947V8.4Z"
+                        fill="#2B2D33" />
+                </svg>
+                <div class="subtitle">Получите карту с бесплатной
+                    доставкой или в отделении</div>
+            </div>
+        </div>
+        <div class="form__field">
+            <div class="text">Форма заявки на кредитную карту</div>
+        </div>
+    </section>
+    <section class="r-online ">
+        <div class="r-online__title">Удобный мобильный банк</div>
+        <div class="r-online__text">Пользуйтесь услугами онлайн без визита в отделение</div>
+        <div class="r-online__screens-slider">
+            <div class="control-button">
+                <button>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.1666 10.0207H4.74106L10.4433 15.7232V17.1666H8.99979L0.833313 8.99989L8.99997 0.833292H10.4434V2.27675L4.74106 7.97905H17.1666V10.0207Z"
+                            fill="#2B2D33" />
+                    </svg></button>
+            </div>
+            <div class="screens">
+                <div class="screens__box">
+                    <img src="img/Phone_Screen.png" alt="device">
+                </div>
+                <div class="screens__box">
+                    <img src="img/Phone_Screen (1).png" alt="device">
+                </div>
+                <div class="screens__box">
+                    <img src="img/Phone_Screen (2).png" alt="device">
+                </div>
+                <div class="screens__box">
+                    <img src="img/Phone_Screen (3).png" alt="device">
+                </div>
+
+            </div>
+            <div class="control-button">
+                <button>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.833292 10.0207H13.2589L7.55669 15.7232V17.1666H9.00014L17.1666 8.99989L8.99997 0.833292H7.55651V2.27675L13.2589 7.97905H0.833292V10.0207Z"
+                            fill="#2B2D33" />
+                    </svg>
+                </button>
+
+
+            </div>
+        </div>
+        <div class="r-online__button">
+            <button>Оформить карту онлайн</button>
+        </div>
+
+
+
+
+    </section>
+    <section class="footer ">
+        <div class="footer__credits">
+            <div class="text-info">© АО «Райффайзенбанк»</div>
+            <div class="text-info">Генеральная лицензия Банка России № 3292 от 17.02.2015. Юридический адрес: 129090,
+                Москва, ул. Троицкая, д. 17, стр. 1</div>
+
+        </div>
+        <div class="footer__legal">
+            <div class="frame text-info">
+                Кэшбэк – возврат средств. Кэшбэк начисляется на любые покупки, совершенные по карте VISA Кэшбэк на всё,
+                в размере 1,5 % от суммы расходной операции. Начисленный за календарный месяц кэшбэк выплачивается
+                рублями на счет клиента в течение 7 рабочих дней после окончания соответствующего календарного месяца.
+                Кэшбэк не начисляется за совершение некоторых видов операций согласно правилам программы, размещенным на
+                сайте raif.ru.
+
+                Сроки проведения акции «Бесплатная кредитная карта «Кэшбэк на всё» для существующих и новых клиентов АО
+                «Райффайзенбанк» — с 01.06.20 по 31.08.20. Информация об организаторе акции, о правилах ее проведения,
+                количестве призов или выигрышей по результатам такой акции, сроках, месте и порядке их получения
+                размещена на на raif.ru или по 8 800 770 09 08.
+
+                В течение льготного периода до 52 дней, проценты по кредиту не начисляются на безналичные операции при
+                условии своевременного внесения минимальных платежей и полного погашения задолженности последнего
+                отчетного периода. Ставка 19-49% годовых определяется индивидуально по результатам оценки
+                кредитоспособности клиента и категории совершаемых клиентом операций по карте. Лимит кредита
+                возобновляемый 15 000-600 000 руб., срок действия лимита не ограничен сроком действия кредитной карты.
+                Кредитный договор действует до момента исполнения сторонами своих обязательств. Комиссии: за процессинг
+                по картам, подключенным к программе лояльности: не взимается по акции/ вне акции 1490 руб. в год по
+                основной карте, 500 рублей в год по дополнительной карте; за выдачу наличных в банкоматах банка и
+                банков-партнеров – 3% от суммы снятия+300 руб/ в иных банкоматах – 3,9 % + 300 руб.; за переводы на
+                карты банка/на карты других банков — 3% от суммы перевода+300 руб.; за квази-кэш-операции—3% от суммы
+                операции + 300 руб.; за сервис «уведомление об операциях» - 60 руб. по основной/45 руб. по
+                дополнительной карте в мес.; за совершение операции за рубежом в валюте, отличной от валюты счета —
+                1,65% от суммы операции; за внесение наличных денежных средств через кассу банка — 100 руб. (при
+                внесении до 10 000 руб.).Банк принимает решение о предоставлении кредита на основании всей полученной
+                информации и требований к заемщику. Действительно на 01.06.20. АО «Райффайзенбанк» 0+
+            </div>
+        </div>
+
+
+    </section>
 </body>
 
 </html>
