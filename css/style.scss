@@ -9,6 +9,9 @@
 //  ===/Mixins===
 
 //  ===Var===
+$mob: 430px;
+$mid: 1090px;
+$midx: 1140px;
 
 // ===/Var===
 
@@ -24,13 +27,22 @@
 
 body {
     @include font-als;
+    overflow: scroll;
 }
 .inner {
     max-width: 1400px;
     margin: 0 auto;
 }
+@media (max-width: 630px) {
+    .xl {
+        display: none;
+    }
+    .sm {
+        display: block;
+    }
+}
 button {
-    width: 213px;
+    max-width: 213px;
     height: 54px;
     border-radius: 10px;
 
@@ -53,15 +65,38 @@ button {
         color: #a2a4a6;
     }
 }
+.fixed-btn-mob {
+    display: none;
+    @media (max-width: $mob) {
+        display: block;
+        button {
+            z-index: 10;
+            width: 100%;
+            max-width: 430px;
+            border-radius: 0;
+            position: fixed;
+            bottom: 0;
+        }
+    }
+}
+
 // ===/COMMON===
 
 // ===Hader===
 .header {
+    @media (min-width: 630px) {
+        .sm {
+            display: none;
+        }
+    }
+
     padding: 22px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     &__logo {
         display: flex;
+
         .logo-raiff {
             border-right: 1px solid #e1e1e3;
             padding-right: 33px;
@@ -82,6 +117,22 @@ button {
             color: #808185;
             text-align: right;
         }
+        svg {
+            display: none;
+            cursor: pointer;
+        }
+        @media (max-width: $mid) {
+            .number {
+                display: none;
+            }
+            .phone-info {
+                display: none;
+            }
+            svg {
+                margin-left: 20px;
+                display: block;
+            }
+        }
     }
 }
 // ===/Hader===
@@ -94,6 +145,10 @@ button {
     padding-top: 80px;
     padding-left: 120px;
     padding-bottom: 80px;
+    @media (max-width: $mob) {
+        padding-top: 24px;
+        padding-left: 16px;
+    }
 
     &__sticker {
         margin-bottom: 13px;
@@ -107,21 +162,37 @@ button {
         max-width: 516px;
         display: flex;
         flex-direction: column;
+        @media (max-width: $mob) {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 42px;
+        }
 
         .num {
             font-weight: 900;
             font-size: 108px;
             margin-top: 26px;
+            @media (max-width: $mob) {
+                font-size: 64px;
+                font-weight: 900;
+            }
             .proc {
                 font-size: 70px;
+                @media (max-width: $mob) {
+                    font-size: 42px;
+                }
             }
         }
     }
     &__button {
         margin-top: 45px;
+        margin-bottom: 40px;
         button {
             width: 213px;
             height: 54px;
+        }
+        @media (max-width: $mob) {
+            display: none;
         }
     }
 }
@@ -134,6 +205,9 @@ button {
     z-index: -1;
     width: 100%;
     background-image: url("../img/Promo_desk_1920x550.png");
+    @media (max-width: 376px) {
+        background-image: url("../img/Promo_mob 3.png");
+    }
     background-position: top right;
     background-size: inherit;
     background-repeat: no-repeat;
@@ -147,6 +221,12 @@ button {
     justify-content: space-around;
 
     border-bottom: 1px solid #e1e1e3;
+    @media (max-width: $mid) {
+        flex-wrap: wrap;
+    }
+    @media (max-width: $mob) {
+        flex-direction: column;
+    }
 
     &__box-conditions {
         @include font-navigo;
@@ -154,8 +234,15 @@ button {
         .title {
             font-size: 36px;
             font-weight: 700;
+            text-align: center;
+            @media (max-width: $mob) {
+                font-size: 30px;
+            }
             .b {
                 font-size: 64px;
+                @media (max-width: $mob) {
+                    font-size: 48px;
+                }
             }
         }
         .text {
@@ -164,6 +251,10 @@ button {
             font-weight: 400;
             color: #808185;
             text-align: center;
+            @media (max-width: $mob) {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
         }
     }
 }
@@ -178,14 +269,27 @@ button {
         font-weight: 700;
         text-align: center;
         margin-bottom: 64px;
+        @media (max-width: $mid +60px) {
+            margin-bottom: 40px;
+        }
+        @media (max-width: $mob) {
+            font-size: 30px;
+        }
     }
     &__wrapper-box {
         display: flex;
         justify-content: space-around;
+        justify-content: center;
+        @media (max-width: $mid +60px) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         .box-cash {
             max-width: 365px;
             max-height: 180px;
+            min-height: 140px;
+            min-width: 343px;
             background: #29476b;
             border-radius: 14px;
             display: flex;
@@ -196,18 +300,27 @@ button {
             padding-left: 30px;
             padding-bottom: 25px;
             padding-right: 30px;
+            @media (max-width: $mid +60px) {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
 
             .subtitle {
                 font-size: 24px;
                 font-weight: 500;
                 color: #ffffff;
                 margin-top: 30px;
+                @media (max-width: $mob) {
+                    font-size: 22px;
+                }
             }
         }
         .box-cash:nth-last-child(1) {
             padding-right: 0;
-            margin-right: 0;
         }
+    }
+    @media (max-width: $mid +60px) {
+        padding: 48px 79px;
     }
 }
 // ===/Cashback===
@@ -216,6 +329,13 @@ button {
 .calculate {
     padding: 72px 195px 90px 195px;
     background: #f4f4f4;
+    @media (max-width: $midx) {
+        background: #ffffff;
+        padding: 22px 25px 48px 25px;
+    }
+    @media (max-width: $mob) {
+        padding: 22px 15px 48px 15px;
+    }
 
     &__title {
         @include font-navigo;
@@ -223,6 +343,9 @@ button {
         font-weight: 700;
         text-align: center;
         margin-bottom: 26px;
+        @media (max-width: $mob) {
+            font-size: 30px;
+        }
     }
     &__text {
         font-size: 18px;
@@ -230,16 +353,25 @@ button {
         color: #808185;
         text-align: center;
         margin-bottom: 52px;
+        @media (max-width: $mob) {
+            font-size: 16px;
+        }
     }
     &__calc-wrapper {
         display: flex;
         padding: 55px 60px 60px 60px;
         background: #ffffff;
         border-radius: 14px;
+        max-width: 1010px;
+        margin: 0 auto;
 
         .wrapper-left {
             border-right: 1px solid #e1e1e3;
             padding-right: 57px;
+            @media (max-width: $midx) {
+                border: 0;
+                padding-right: 0;
+            }
 
             .slider-box {
                 margin-bottom: 32px;
@@ -247,6 +379,7 @@ button {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    min-width: 340px;
 
                     .subtitle {
                         font-size: 16px;
@@ -254,6 +387,10 @@ button {
                     .slider-value {
                         @include font-navigo;
                         font-size: 32px;
+                        @media (max-width: $midx) {
+                            font-size: 24px;
+                            font-weight: 400;
+                        }
                     }
                 }
 
@@ -263,6 +400,7 @@ button {
                         .stripe-1 {
                             -webkit-appearance: none;
                             width: 100%;
+                            min-width: 340px;
                             height: 5px;
                             background: -webkit-linear-gradient(
                                 left,
@@ -296,6 +434,7 @@ button {
                     display: flex;
                     justify-content: space-between;
                     margin-top: 17px;
+                    min-width: 340px;
                     .text {
                         font-size: 12px;
                         color: #a2a4a6;
@@ -306,11 +445,18 @@ button {
                 margin-top: 44px;
                 font-size: 13px;
                 color: #a2a4a6;
+                @media (max-width: $midx) {
+                    display: none;
+                }
+                @media (max-width: $mob) {
+                    font-size: 12px;
+                }
             }
         }
 
         .wrapper-right {
             padding-left: 56px;
+            min-width: 343px;
             .client-info {
                 margin-bottom: 65px;
                 .title {
@@ -321,7 +467,42 @@ button {
             }
             .credit-button {
                 margin-top: 12px;
+                button {
+                    max-width: 204px;
+                    width: 204px;
+                }
             }
+            .text-info {
+                display: none;
+                color: #808185;
+                @media (max-width: $midx) {
+                    display: block;
+                    margin-top: 24px;
+                    padding: 12px 36px 12px 36px;
+                    text-align: center;
+                    border-top: 1px solid #e1e1e3;
+                }
+            }
+            @media (max-width: $midx) {
+                padding-top: 20px;
+                padding-left: 0;
+                background: #f4f4f4;
+                border-radius: 14px;
+
+                .client-info {
+                    text-align: center;
+                    margin-bottom: 14px;
+                }
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: $midx) {
+            flex-direction: column;
+            padding: 0;
         }
     }
 }
@@ -330,12 +511,19 @@ button {
 // ===Form===
 .form {
     padding: 80px 218px 90px 218px;
+    @media (max-width: $mid) {
+        padding: 48px 0px 60px 0px;
+    }
+
     &__title {
         @include font-navigo;
         font-size: 48px;
         font-weight: 700;
         text-align: center;
         margin-bottom: 44px;
+        @media (max-width: $mob) {
+            font-size: 30px;
+        }
     }
     &__steps {
         display: flex;
@@ -343,10 +531,27 @@ button {
         margin-bottom: 42px;
         padding-right: 40px;
         padding-left: 40px;
+        @media (max-width: $mid) {
+            flex-direction: column;
+            padding-right: 80px;
+            padding-left: 25%;
+
+            margin-bottom: 32px;
+        }
+        @media (max-width: $mob) {
+            padding-right: 32px;
+            padding-left: 32px;
+            margin-bottom: 32px;
+        }
 
         .steps-box {
             display: flex;
             margin-right: 40px;
+            @media (max-width: $mid) {
+                margin-bottom: 25px;
+                align-items: center;
+                margin-right: 0;
+            }
             svg {
                 margin-right: 14px;
                 min-width: 21px;
@@ -364,7 +569,6 @@ button {
     &__field {
         border: 1px solid #e1e1e3;
         border-radius: 12px;
-        max-width: 964px;
         height: 511px;
         display: flex;
         justify-content: center;
@@ -374,6 +578,13 @@ button {
             font-weight: 400;
             color: #a2a4a6;
         }
+        @media (max-width: $mid) {
+            border: 0;
+            border-radius: 0;
+            width: 100%;
+            height: 511px;
+            background: #f4f4f4;
+        }
     }
 }
 // ===/Form===
@@ -382,6 +593,19 @@ button {
 .r-online {
     background: #424548;
     padding: 80px 130px 80px 130px;
+    .sm {
+        display: none;
+    }
+    @media (max-width: 630px) {
+        .xl {
+            display: none;
+        }
+        .sm {
+            display: block;
+        }
+        padding: 53px 16px 30px 16px;
+    }
+
     &__title {
         @include font-navigo;
         font-size: 48px;
@@ -389,6 +613,9 @@ button {
         color: #ffffff;
         text-align: center;
         margin-bottom: 17px;
+        @media (max-width: $mob) {
+            font-size: 30px;
+        }
     }
     &__text {
         font-size: 18px;
@@ -396,6 +623,12 @@ button {
         color: #ffffff;
         text-align: center;
         margin-bottom: 64px;
+        @media (max-width: 630px) {
+            margin-bottom: 32px;
+        }
+        @media (max-width: $mob) {
+            font-size: 16px;
+        }
     }
     &__screens-slider {
         display: flex;
@@ -418,6 +651,7 @@ button {
         .screens {
             display: flex;
             justify-content: space-between;
+
             &__box {
                 background: #2b2d33;
                 border-radius: 14px;
@@ -431,6 +665,60 @@ button {
             }
             &__box:nth-last-child(1) {
                 margin-right: 0;
+                @media (max-width: $midx) {
+                    display: none;
+                }
+            }
+            @media (max-width: $midx) {
+                &__box:nth-last-child(2) {
+                    margin-right: 0;
+                }
+            }
+            &__box:nth-last-child(2) {
+                @media (max-width: 940px) {
+                    display: none;
+                }
+            }
+            @media (max-width: 940px) {
+                &__box:nth-last-child(3) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    &__screens-slider-mob {
+        .screens-mob {
+            display: flex;
+            justify-content: center;
+            &__box {
+                background: #2b2d33;
+                border-radius: 14px;
+                padding: 32px 24px 0px 24px;
+                img {
+                    position: relative;
+                    bottom: -7px;
+                }
+            }
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            .dot {
+                width: 7px;
+                height: 7px;
+                border: 1px solid #808185;
+                border-radius: 18px;
+                margin-right: 7px;
+                cursor: pointer;
+                &:hover {
+                    border: 2px solid lighten(#808185, 10%);
+                }
+            }
+            .active {
+                background: #fee600;
+                border: none;
             }
         }
     }
@@ -451,11 +739,17 @@ button {
 .footer {
     margin-top: 90px;
     padding-bottom: 50px;
+    @media (max-width: $mob) {
+        padding-bottom: 60px;
+    }
     .text-info {
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
         color: #808185;
+        @media (max-width: $mob) {
+            font-size: 12px;
+        }
     }
     &__credits {
         display: flex;
@@ -463,9 +757,29 @@ button {
         border-top: 1px solid #e1e1e3;
         border-bottom: 1px solid #e1e1e3;
         padding: 29px 130px;
+        .text-info {
+            margin-right: 20px;
+            @media (max-width: $mob) {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+        }
+        .text-info:nth-last-child(1) {
+            margin-right: 0;
+            @media (max-width: $mob) {
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: $mob) {
+            flex-direction: column;
+            padding: 27px 16px;
+        }
     }
     &__legal {
         padding: 47px 130px;
+        @media (max-width: $mob) {
+            padding: 27px 16px;
+        }
 
         .frame {
             overflow: scroll;

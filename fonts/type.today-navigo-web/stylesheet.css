@@ -2,3 +2,7 @@
     font-family: Navigo;
     src: url("Navigo-Black-Web.ttf") format("truetype");
 }
+@font-face {
+    font-family: Navigo;
+    src: url("Navigo-Regular-Web.ttf") format("truetype");
+}
