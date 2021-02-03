@@ -1,36 +1,20 @@
-$.fn.scrollStopped = function (callback) {
-    var that = this, $this = $(that);
-    $this.scroll(function (ev) {
+const onScrollStopped = (domElem, callback, delay = 200) => {
+    domElem.addEventListener('scroll', () => {
+        document.getElementsByClassName('fixed-btn-mob')[0].style.cssText = `
+        transition: all 0.2s ease;
+        bottom: -55px;`
 
-        $('.fixed-btn-mob button').animate({
-            bottom: "-55px"
-        }, 1)
-        if ($(this).scrollTop() > $('.form')[0].offsetTop
-            && $(this).scrollTop() < $('.form')[0].offsetTop + $('.form')[0].offsetHeight - 300
-        ) {
-            $('.fixed-btn-mob button').animate({
-                bottom: "-55px"
-            }, 1)
-        }
-
-        else {
-            clearTimeout($this.data('scrollTimeout'));
-            $this.data('scrollTimeout', setTimeout(callback.bind(that), 250, ev));
-        }
+        clearTimeout(callback.delay);
+        callback.delay = setTimeout(callback, delay);
     });
-};
+}
 
-$(window).scrollStopped(function () {
-    // console.log(Math.round($(this).scrollTop()), $('#point')[0].offsetTop)
-    if (Math.round($(this).scrollTop()) == $('#point')[0].offsetTop
-        || Math.round($(this).scrollTop()) + 1 == $('#point')[0].offsetTop) {
-        $('.fixed-btn-mob button').animate({
-            bottom: "-55px"
-        }, 1)
-    }
-    else {
-        $('.fixed-btn-mob button').animate({
-            bottom: "0px"
-        })
-    }
-});
+onScrollStopped(window, () => {
+    if(window.pageYOffset < document.getElementsByClassName('point')[0].offsetTop
+    || window.pageYOffset > document.getElementsByClassName('point')[0].offsetTop+document.getElementsByClassName('point')[0].offsetHeight/2){
+    document.getElementsByClassName('fixed-btn-mob')[0].style.cssText = `
+        transition: all 0.2s ease;
+        bottom: 0px;
+    `   }
+    })
+

@@ -1,9 +1,8 @@
-$(document).ready(() => {
-    $('.fixed-btn-mob').click(() => {
-        $('html, body').animate({
-            scrollTop: $('#point').offset().top
-        }, 400);
+const scrollToPoint = () => {
+    const point = document.getElementsByClassName('point')[0].offsetTop;
+    window.scroll({
+        top: point,
+        left: 0,
+        behavior: 'smooth'
     })
-
-})
-
+}
