@@ -593,6 +593,7 @@ button {
 .r-online {
     background: #424548;
     padding: 80px 130px 80px 130px;
+    
     .sm {
         display: none;
     }
@@ -603,8 +604,9 @@ button {
         .sm {
             display: block;
         }
-        padding: 53px 16px 30px 16px;
+        padding: 53px 0px 30px 10px;
     }
+    
 
     &__title {
         @include font-navigo;
@@ -630,98 +632,110 @@ button {
             font-size: 16px;
         }
     }
+
     &__screens-slider {
+        margin: 0 auto;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #424548;
+
+  
+  @media (max-width: 430px) {
+    flex-direction: column;
+    .next, .prev{
+      display: none;
+    }
+  }
+  button{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .slider-sc{
+    display: flex;
+    flex-direction: column;
+    background: #424548;
+    overflow: hidden;
+  
+    width: 1020px;
+    height: 390px;
+  
+    margin-left: 20px;
+    margin-right: 40px;
+    position: relative;
+    @media (max-width: 430px) {
+      padding-left: 15px;
+      padding-right: 0;
+      overflow: scroll;
+      overflow-y: hidden;
+  
+      height: 340px;
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+    &__screen-box{
+      background: #424548;
+      display: flex;
+     
+      position: absolute;
+      left: 20px;
+      .screen{
+        background: #2B2D33;
+        width: 235px;
+        height: 380px;
+        border-radius: 14px;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-bottom: 70px;
-
-        .control-button {
-            margin-right: 20px;
-            button {
-                height: 42px;
-                width: 42px;
-            }
+        justify-content: center;
+        margin-right: 20px;
+        padding: 60px 24px 0px 24px;
+        @media (max-width: 430px) {
+          width: 210px;
+          height: 340px;
         }
-        .control-button:nth-last-child(1) {
-            margin-right: 0;
-            margin-left: 20px;
-        }
-
-        .screens {
-            display: flex;
-            justify-content: space-between;
-
-            &__box {
-                background: #2b2d33;
-                border-radius: 14px;
-                padding: 60px 24px 0px 24px;
-
-                margin-right: 20px;
-                img {
-                    position: relative;
-                    bottom: -8px;
-                }
-            }
-            &__box:nth-last-child(1) {
-                margin-right: 0;
-                @media (max-width: $midx) {
-                    display: none;
-                }
-            }
-            @media (max-width: $midx) {
-                &__box:nth-last-child(2) {
-                    margin-right: 0;
-                }
-            }
-            &__box:nth-last-child(2) {
-                @media (max-width: 940px) {
-                    display: none;
-                }
-            }
-            @media (max-width: 940px) {
-                &__box:nth-last-child(3) {
-                    margin-right: 0;
-                }
-            }
-        }
+      }
+      
     }
-    &__screens-slider-mob {
-        .screens-mob {
-            display: flex;
-            justify-content: center;
-            &__box {
-                background: #2b2d33;
-                border-radius: 14px;
-                padding: 32px 24px 0px 24px;
-                img {
-                    position: relative;
-                    bottom: -7px;
-                }
-            }
-        }
-        .dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
+  }
 
-            .dot {
-                width: 7px;
-                height: 7px;
-                border: 1px solid #808185;
-                border-radius: 18px;
-                margin-right: 7px;
-                cursor: pointer;
-                &:hover {
-                    border: 2px solid lighten(#808185, 10%);
-                }
-            }
-            .active {
-                background: #fee600;
-                border: none;
-            }
-        }
+  .slider-sc::-webkit-scrollbar {
+    width: 0;
+  }
+  .dots{
+    
+    margin-top: 30px;
+    display: none;
+    .dot{
+      border: 1px solid #ffffff;
+      border-radius: 18px;
+      width: 7px;
+      height: 7px;
+  
+      margin-right: 3px;
     }
+    .active{
+      border: 0;
+      background: rgb(250, 225, 0);
+    }
+    @media (max-width: 430px) {
+      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .dot{
+  
+      }
+      
+    }
+  }
+    }
+
+   
     &__button {
         display: flex;
         justify-content: center;
